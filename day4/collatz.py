@@ -25,10 +25,9 @@ def collatz(number):
 比如int('puppy')。在except子句中，向用户输出一条信息，告诉他们必须输入一个整数。
 '''
 
-getNumber = ''
-print('Enter number:')
+
 try:
-    getNumber = int(input())
+    getNumber = int(input('Enter number:'))
     while True:
         getNumber = collatz(getNumber)
         if getNumber == 1:
