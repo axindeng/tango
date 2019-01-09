@@ -25,6 +25,7 @@ emailRegex  = re.compile(r'''(
 )
 ''',re.VERBOSE)
 
+# 从文本中查找所有的电话号码，把结果存放在一个列表里面
 phoneNumMatches = phoneNumRegex.findall(text)
 if  len(phoneNumMatches) <= 0:
     print('phoneNumber match nothing.')
@@ -32,7 +33,7 @@ else:
     for i in range(len(phoneNumMatches)):
         print(phoneNumMatches[i])
    
-
+# 从文本中查找所有的email地址，把结果放在一个列表里面
 emailMatches = emailRegex.findall(text)
 if  len(emailMatches) <= 0:
     print('email match nothing.')
@@ -40,7 +41,7 @@ else:
     for i in range(len(emailMatches)):
         print(emailMatches[i])   
 
-
+# 把列表合并，并转化为字符串，然后拷贝到粘贴板
 matchesList = phoneNumMatches + emailMatches
 
 if len(matchesList) > 0:
