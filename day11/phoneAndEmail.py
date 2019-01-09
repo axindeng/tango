@@ -1,6 +1,6 @@
 #
 #
-import
+import pyperclip,re
 
 
 # create phoneNumber regex
