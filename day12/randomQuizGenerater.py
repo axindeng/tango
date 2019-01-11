@@ -34,13 +34,20 @@ quizAnswer = []
 # 根据随机州名列表，生成对应1个正确答案选项+3个错误答案选项
 # 随机打乱4个答案选项
 # 最后将以上内容写入到quiz.txt
+quizFile = open('quiz.txt','w')
+quizAnswerFile = open('quizAnswerFile.txt','w')
 print('Name:')
 print('LearnNo.:')
 print('\n')
+quizFile.write('Name:' + '\n')
+quizFile.write('LearnNo.:' + '\n')
+quizFile.write('\n')
+
 for i in range(len(statesList)):
     stateName = statesList[i]
     j = i + 1
     print( str(j) + '.What is the capital of ' + stateName + '?')
+    quizFile.write(str(j) + '.What is the capital of ' + stateName + '?' + '\n')
     RightAnswer = capitals[stateName]
     wrongAnswerList = copy.copy(capitalsList)       # 拷贝一份所有的答案选项
     wrongAnswerList.remove(RightAnswer)             # 从所有的答案选项中剔除正确的选项，得到错误的选项列表
@@ -49,14 +56,27 @@ for i in range(len(statesList)):
     random.shuffle(answerList)
 
     for i in range(len(answerList)):
-        print( ABCD[i]+ '. ' + answerList[i])
+
+        
         if answerList[i] == RightAnswer:
+            print( ABCD[i]+ '. ' + answerList[i] + ' **')
+            quizFile.write(ABCD[i]+ '. ' + answerList[i] + ' **' + '\n')
             answer=str(j) + '.' + ABCD[i]
             quizAnswer.append(answer)
+        else:
+            print( ABCD[i]+ '. ' + answerList[i])
+            quizFile.write(ABCD[i]+ '. ' + answerList[i] + '\n')
+    quizFile.write('\n')        
     print('\n')
 
+
+print('Quiz Answer')
 for a in quizAnswer:
+    quizAnswerFile.write(a + '\n')
     print(a)
+
+quizFile.close()
+quizAnswerFile.close()
 
 
 
