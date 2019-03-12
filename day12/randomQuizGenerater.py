@@ -16,11 +16,9 @@ capitals = {'Alabama': 'Montgomery', 'Alaska': 'Juneau', 'Arizona': 'Phoenix','A
 'South Carolina': 'Columbia', 'South Dakota': 'Pierre', 'Tennessee':'Nashville', 'Texas': 'Austin', 'Utah': 'Salt Lake City', 'Vermont':
 'Montpelier', 'Virginia': 'Richmond', 'Washington': 'Olympia', 'WestVirginia': 'Charleston', 'Wisconsin': 'Madison', 'Wyoming': 'Cheyenne'}
 
-# TODO0 取得一个随机的州名列表
+# TODO0 取得一个随机的州名列表,取得一个随机的州府列表
 statesList = list(capitals.keys())
 random.shuffle(statesList)
-
-# 取得一个随机的州府列表
 capitalsList = list(capitals.values())
 
 ABCD = ['A','B','C','D']
@@ -55,9 +53,7 @@ for i in range(len(statesList)):
     answerList = wrongAnswerList + [RightAnswer]
     random.shuffle(answerList)
 
-    for i in range(len(answerList)):
-
-        
+    for i in range(len(answerList)):        
         if answerList[i] == RightAnswer:
             print( ABCD[i]+ '. ' + answerList[i] + ' **')
             quizFile.write(ABCD[i]+ '. ' + answerList[i] + ' **' + '\n')
