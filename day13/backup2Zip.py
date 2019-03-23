@@ -19,16 +19,18 @@ def backup2zip(folder):
 #2.使用os.walk进行递归压缩
     backupZipfile = zipfile.ZipFile(zipFileName,'w')
     for foldername,subfolders,filenames in os.walk(folder):
-        print('Adding files in %s....' % (foldername) )
+        print('Adding folder in %s....' % (foldername) )
         backupZipfile.write(foldername)
         for file in filenames:
             newBase = os.path.basename(folder) + '_'
             if file.startswith(newBase) and file.endswith('.zip'):
                 continue
-            backupZipfile.write(os.path.join(foldername,file))
+            filename = os.path.join(foldername,file)
+            print('Adding file   in %s....' % filename)
+            backupZipfile.write(filename)
     backupZipfile.close()
     
     print('Done.')
     print(zipFileName)
 backup2zip('E:\\python\\tango')
-backup2zip('E:\\docker')
+#backup2zip('E:\\docker')
