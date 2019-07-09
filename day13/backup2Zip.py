@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Author: dengg@cmschina.com.cn
+# Author: axindeng@qq.com
 ##########################################
 
 import os,zipfile
